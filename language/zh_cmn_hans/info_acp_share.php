@@ -53,4 +53,5 @@ $lang = array_merge($lang, array(
 	'ACP_SHARE_DESC_EXPLAIN'	=> '微信分享说明，默认使用论坛名称。',
 	'ACP_SHARE_IMAGE_URL'			=> '分享图片链接(选填)',
 	'ACP_SHARE_IMAGE_URL_EXPLAIN'	=> '微信分享图片链接，不填则无图片。',
+	'ACP_SHARE_IMAGE_URL_INVALID'	=> '必须包含一个有效的图片URL，否则无法得到有效的分享样式。'
 ));

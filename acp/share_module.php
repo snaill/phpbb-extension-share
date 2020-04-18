@@ -39,6 +39,11 @@ class share_module
 				$errors[] = $user->lang('ACP_SHARE_HOST_INVALID');
 			}
 
+			if (empty($request->variable('share_image_url', '')))
+			{
+				$errors[] = $user->lang('ACP_SHARE_IMAGE_URL_INVALID');
+			}
+
 			// If we have no errors so far, let's ensure our AWS credentials are actually working.
 			if (!count($errors)) {
 
