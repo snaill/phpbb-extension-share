@@ -3,12 +3,11 @@
 <script>
 	$(document).ready(function () {
 
-		var url = location.href.split('#')[0]; //"{S_SHARE_URL}";
-console.log(url);
+		var url = location.href.split('#')[0];
 		$.ajax({
 			url: "{S_SHARE_HOST}",
 			data: {
-				"url": url
+				"url": encodeURIComponent(url)
 			},
 			dataType: "json",
 			success: function (data) {
@@ -24,7 +23,7 @@ console.log(url);
 				var data = {
 					title: "{S_SHARE_TITLE}",
 					desc: "{S_SHARE_DESC}",
-					link: url,
+					link: "{S_SHARE_URL}",
 					imgUrl: "{S_SHARE_IMGURL}",
 					success: function () {
 						console.log("设置成功");
