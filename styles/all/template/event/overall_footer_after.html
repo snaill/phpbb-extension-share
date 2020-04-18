@@ -3,9 +3,8 @@
 <script>
 	$(document).ready(function () {
 
-		var url = "{S_SHARE_URL}";
-		console.log(url);
-
+		var url = location.href.split('#')[0]; //"{S_SHARE_URL}";
+console.log(url);
 		$.ajax({
 			url: "{S_SHARE_HOST}",
 			data: {
@@ -19,8 +18,7 @@
 					timestamp: parseInt(data.timestamp),
 					nonceStr: data.nonceStr,
 					signature: data.signature,
-					jsApiList: ['updateAppMessageShareData',
-						'updateTimelineShareData']
+					jsApiList: data.jsApiList
 				});
 
 				var data = {
