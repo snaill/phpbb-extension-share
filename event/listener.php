@@ -70,7 +70,7 @@ class listener implements EventSubscriberInterface
 
 	public function viewtopic_postrow_shareon($event)
 	{
-		if (!$this->config['share_status']) {
+		if ($this->config['share_status']) {
 
 			$row = $event['row'];
 			$forum_id = (int) $row['forum_id'];
