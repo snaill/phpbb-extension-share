@@ -1,0 +1,46 @@
+{
+    "name": "sharepai/share",
+    "type": "phpbb-extension",
+    "description": "phpbb-extension-share allows users to share the topics and posts on wechat.",
+    "homepage": "https://github.com/snaill/phpbb-extension-share/",
+    "version": "1.0.0",
+    "time": "2020-04-20",
+    "keywords": [
+        "phpbb",
+        "extension",
+        "share",
+        "social",
+        "wechat"
+    ],
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "snaill",
+            "homepage": "https://github.com/snaill",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "Wechat Share",        
+        "soft-require": {
+            "phpbb/phpbb": "～3.3"
+        }
+    },
+    "repositories": {
+        "0": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<!-- IF S_SHARE_STATUS and S_VIEWTOPIC -->
+<!-- INCLUDEJS https://res.wx.qq.com/open/js/jweixin-1.4.0.js -->
+<script>
+	$(document).ready(function () {
+
+		var url = "{S_SHARE_URL}";
+		console.log(url);
+
+		$.ajax({
+			url: "{S_SHARE_HOST}",
+			data: {
+				"url": url
+			},
+			dataType: "json",
+			success: function (data) {
+				wx.config({
+					debug: data.debug,
+					appId: data.appId,
+					timestamp: parseInt(data.timestamp),
+					nonceStr: data.nonceStr,
+					signature: data.signature,
+					jsApiList: ['updateAppMessageShareData',
+						'updateTimelineShareData']
+				});
+
+				var data = {
+					title: "{S_SHARE_TITLE}",
+					desc: "{S_SHARE_DESC}",
+					link: url,
+					imgUrl: "{S_SHARE_IMGURL}",
+					success: function () {
+						console.log("设置成功");
+					}
+				}
+
+				wx.ready(function () {
+					wx.updateAppMessageShareData(data);
+					wx.updateTimelineShareData(data);
+				});
+
+				wx.error(function (res) {
+					console.log(res);
+				});
+			}
+		});
+	});
+</script>
+<!-- ENDIF -->

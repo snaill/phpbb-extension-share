@@ -1,0 +1,75 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_ACP_SHARE_TITLE}</h1>
+<p>{L_ACP_SHARE_EXPLAIN}</p>
+
+<!-- IF OSS_ERROR -->
+<div class="errorbox"><h3>{L_WARNING}</h3>
+	<p>{ACP_SHARE_ERROR}</p>
+</div>
+<!-- ENDIF -->
+
+<form id="acp_share" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_SHARE}</legend>
+		<dl>
+			<dt><label id="share_status" for="share_status">{L_ACP_SHARE_STATUS}{L_COLON}</label></dt>
+			<dd><input type="radio" class="radio" name="share_status" value="1" <!-- IF ACP_SHARE_STATUS -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="share_status" value="0" <!-- IF not ACP_SHARE_STATUS -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
+			<dt><label id="share_type" for="share_type">{L_ACP_SHARE_TYPE}{L_COLON}</label><br /><span>{L_ACP_SHARE_TYPE_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="share_type" value="1" <!-- IF ACP_SHARE_TYPE -->checked="checked"<!-- ENDIF -->/> {L_TOPIC} &nbsp; 
+				<input type="radio" class="radio" name="share_type" value="0" <!-- IF not ACP_SHARE_TYPE -->checked="checked"<!-- ENDIF --> /> {L_POST}</dd>
+		</dl>
+
+		<dl>
+			<dt>
+				<label for="share_host">{L_ACP_SHARE_HOST}</label>
+				<br>
+				<span>{L_ACP_SHARE_HOST_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" id="share_host" name="share_host" value="{ACP_SHARE_HOST}"
+					   maxlength="255" size="40"/>
+			</dd>
+		</dl>
+
+
+		<dl>
+			<dt>
+				<label for="share_host">{L_ACP_SHARE_DESC}</label>
+				<br>
+				<span>{L_ACP_SHARE_DESC_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" id="share_desc" name="share_desc" value="{ACP_SHARE_DESC}"
+					   maxlength="255" size="40"/>
+			</dd>
+		</dl>
+
+
+		<dl>
+			<dt>
+				<label for="share_image_url">{L_ACP_SHARE_IMAGE_URL}</label>
+				<br>
+				<span>{L_ACP_SHARE_IMAGE_URL_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" id="share_image_url" name="share_image_url" value="{ACP_SHARE_IMAGE_URL}"
+					   maxlength="255" size="40"/>
+			</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{L_ACP_SUBMIT_CHANGES}</legend>
+
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		</p>
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+<!-- INCLUDE overall_footer.html -->
