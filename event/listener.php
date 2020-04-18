@@ -55,7 +55,7 @@ class listener implements EventSubscriberInterface
 	{
 		return array(
 			'core.common'							=> 'common_setup',
-			'core.viewtopic_modify_post_row'		=> 'viewtopic_postrow_shareon',
+			'core.viewtopic_modify_post_row'		=> 'viewtopic_postrow_share',
 		);
 	}
 
@@ -68,7 +68,7 @@ class listener implements EventSubscriberInterface
 		));
 	}
 
-	public function viewtopic_postrow_shareon($event)
+	public function viewtopic_postrow_share($event)
 	{
 		if ($this->config['share_status']) {
 
@@ -80,11 +80,15 @@ class listener implements EventSubscriberInterface
 			$post_url = generate_board_url() . "/viewtopic.$this->php_ext?" . 'p=' . $event['row']['post_id'] . '#p' . $event['row']['post_id'];
 			$share_url = !$this->config['share_type'] ? $post_url : $topic_url;
 
+			// avatar is <img>
+			preg_match('/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))\"?.+>/i', $event['user_poster_data']['avatar'], $match);
+			$avatar = $match[1];
+
 			$this->template->assign_vars(array(
 				'S_SHARE_TITLE'		=> $topic_title,
 				'S_SHARE_URL'		=> $share_url,
 				'S_SHARE_DESC'		=> empty($this->config['share_desc']) ? $this->config['sitename'] : $this->config['share_desc'],
-				'S_SHARE_IMGURL' 	=> $this->config['share_image_url']
+				'S_SHARE_IMGURL' 	=> empty($avatar) ? $this->config['share_image_url'] : $avatar
 			));
 		}
 	}

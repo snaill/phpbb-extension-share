@@ -51,7 +51,7 @@ $lang = array_merge($lang, array(
 	'ACP_SHARE_HOST_INVALID'	=> '签名URL不得为空。',
 	'ACP_SHARE_DESC'			=> '分享说明(选填)',
 	'ACP_SHARE_DESC_EXPLAIN'	=> '微信分享说明，默认使用论坛名称。',
-	'ACP_SHARE_IMAGE_URL'			=> '分享图片链接(选填)',
-	'ACP_SHARE_IMAGE_URL_EXPLAIN'	=> '微信分享图片链接，不填则无图片。',
-	'ACP_SHARE_IMAGE_URL_INVALID'	=> '必须包含一个有效的图片URL，否则无法得到有效的分享样式。'
+	'ACP_SHARE_IMAGE_URL'			=> '分享图片链接',
+	'ACP_SHARE_IMAGE_URL_EXPLAIN'	=> '默认使用发帖用户头像，没有设置头像则使用本链接。',
+	'ACP_SHARE_IMAGE_URL_INVALID'	=> '必须包含一个有效的图片URL，否则可能无法得到有效的分享样式。'
 ));
